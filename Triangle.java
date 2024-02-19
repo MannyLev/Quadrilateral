@@ -4,17 +4,17 @@ public class Triangle {
 
     public Triangle(OrderedPair vertexOne, OrderedPair vertexTwo, OrderedPair vertexThree) {
         this.vertexOne = vertexOne;
-        System.out.println("vertexOne " + vertexOne.x + ", " + vertexOne.getY());
+        // System.out.println("vertexOne " + vertexOne.x + ", " + vertexOne.getY());
         this.vertexTwo = vertexTwo;
-        System.out.println("vertexTwo " + vertexTwo.x + ", " + vertexTwo.getY());
+        // System.out.println("vertexTwo " + vertexTwo.x + ", " + vertexTwo.getY());
         this.vertexThree = vertexThree;
-        System.out.println("vertexThree " + vertexThree.x + ", " + vertexThree.getY());
+        // System.out.println("vertexThree " + vertexThree.x + ", " + vertexThree.getY());
         this.lineOne = new Line(vertexOne, vertexTwo);
-        System.out.println("Line one " + lineOne.pointA.getX() + ", " + lineOne.pointA.getY() + ", " + lineOne.pointB.getX() + ", " + lineOne.pointB.getY());
+        // System.out.println("Line one " + lineOne.pointA.getX() + ", " + lineOne.pointA.getY() + ", " + lineOne.pointB.getX() + ", " + lineOne.pointB.getY());
         this.lineTwo = new Line(vertexTwo, vertexThree);
-        System.out.println("Line two " + lineTwo.pointA.getX() + ", " + lineTwo.pointA.getY() + ", " + lineTwo.pointB.getX() + ", " + lineTwo.pointB.getY());
+        // System.out.println("Line two " + lineTwo.pointA.getX() + ", " + lineTwo.pointA.getY() + ", " + lineTwo.pointB.getX() + ", " + lineTwo.pointB.getY());
         this.lineThree = new Line(vertexThree, vertexOne);
-        System.out.println("Line three " + lineThree.pointA.getX() + ", " + lineThree.pointA.getY() + ", " + lineTwo.pointB.getX() + ", " + lineThree.pointB.getY());
+        // System.out.println("Line three " + lineThree.pointA.getX() + ", " + lineThree.pointA.getY() + ", " + lineTwo.pointB.getX() + ", " + lineThree.pointB.getY());
         
     }
 
@@ -45,11 +45,11 @@ public class Triangle {
 
     public boolean isPointInterior(OrderedPair comparisonPair) {
         if (areInteriorPointsAboveLineOne() != lineOne.isPointAboveLine(comparisonPair)) return false;
-        System.out.println(areInteriorPointsAboveLineOne() + " for line one " + lineOne.isPointAboveLine(comparisonPair));
+        // System.out.println(areInteriorPointsAboveLineOne() + " for line one " + lineOne.isPointAboveLine(comparisonPair));
         if (areInteriorPointsAboveLineTwo() != lineTwo.isPointAboveLine(comparisonPair)) return false;
-        System.out.println(areInteriorPointsAboveLineTwo() + " for line two " + lineTwo.isPointAboveLine(comparisonPair));
+        // System.out.println(areInteriorPointsAboveLineTwo() + " for line two " + lineTwo.isPointAboveLine(comparisonPair));
         if (areInteriorPointsAboveLineThree() != lineThree.isPointAboveLine(comparisonPair)) return false;
-        System.out.println(areInteriorPointsAboveLineThree() + " for line three " + lineThree.isPointAboveLine(comparisonPair));
+        // System.out.println(areInteriorPointsAboveLineThree() + " for line three " + lineThree.isPointAboveLine(comparisonPair));
         return true;
     }
 
