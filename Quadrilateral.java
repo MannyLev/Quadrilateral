@@ -17,13 +17,13 @@ public class Quadrilateral {
             for (int j = 0; j < 4; j++) {
                 if ((i != j) && (vertexOne == null)) {
                     vertexOne = orderedPairs[j];
-                    System.out.println("triangle " + i + " ordered pair one " + vertexOne.x + ", " + vertexOne.y);
+                    // System.out.println("triangle " + i + " ordered pair one " + vertexOne.x + ", " + vertexOne.y);
                 } else if ((i != j) && (vertexTwo == null)) {
                     vertexTwo = orderedPairs[j];
-                    System.out.println("triangle " + i + " ordered pair two " + vertexTwo.x + ", " + vertexTwo.y);
+                    // System.out.println("triangle " + i + " ordered pair two " + vertexTwo.x + ", " + vertexTwo.y);
                 } else if ((i != j) && (vertexThree == null)) {
                     vertexThree = orderedPairs[j];
-                    System.out.println("triangle " + i + " ordered pair three " + vertexThree.x + ", " + vertexThree.y);
+                    // System.out.println("triangle " + i + " ordered pair three " + vertexThree.x + ", " + vertexThree.y);
                 }
             }
             triangleArray[i] = new Triangle(vertexOne, vertexTwo, vertexThree);
@@ -32,19 +32,15 @@ public class Quadrilateral {
 
     public boolean isPointInterior(OrderedPair comparisonPoint) {
         for (int i = 0; i < 4; i++) {
-            System.out.println("Triangle "+ i + " is interior");
-            System.out.println("Triangle " + i + " is " + triangleArray[i].getVertexOne().getX() + " " + triangleArray[i].getVertexOne().getY() + " " + 
-            triangleArray[i].getVertexTwo().getX() + " " + triangleArray[i].getVertexTwo().getY() + " " + triangleArray[i].getVertexThree().getX() + " " + triangleArray[i].getVertexThree().getY() + " ");
+            // System.out.println("Triangle "+ i + " is interior");
+            // System.out.println("Triangle " + i + " is " + triangleArray[i].getVertexOne().getX() + " " + triangleArray[i].getVertexOne().getY() + " " + 
+            // triangleArray[i].getVertexTwo().getX() + " " + triangleArray[i].getVertexTwo().getY() + " " + triangleArray[i].getVertexThree().getX() + " " + triangleArray[i].getVertexThree().getY() + " ");
             if (triangleArray[i].isPointInterior(comparisonPoint)) return true;
         }
         return false;
     }
 
     public static void main(String[] args) {
-
-        for (int i = 0; i < args.length; i++) {
-            System.out.println(i + " args " + args[i]);
-        }
         OrderedPair firstPair = new OrderedPair(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
         OrderedPair secondPair = new OrderedPair(Double.parseDouble(args[2]), Double.parseDouble(args[3]));
         OrderedPair thirdPair = new OrderedPair(Double.parseDouble(args[4]), Double.parseDouble(args[5]));

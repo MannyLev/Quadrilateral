@@ -4,11 +4,18 @@ public class Triangle {
 
     public Triangle(OrderedPair vertexOne, OrderedPair vertexTwo, OrderedPair vertexThree) {
         this.vertexOne = vertexOne;
+        System.out.println("vertexOne " + vertexOne.x + ", " + vertexOne.getY());
         this.vertexTwo = vertexTwo;
+        System.out.println("vertexTwo " + vertexTwo.x + ", " + vertexTwo.getY());
         this.vertexThree = vertexThree;
+        System.out.println("vertexThree " + vertexThree.x + ", " + vertexThree.getY());
         this.lineOne = new Line(vertexOne, vertexTwo);
+        System.out.println("Line one " + lineOne.pointA.getX() + ", " + lineOne.pointA.getY() + ", " + lineOne.pointB.getX() + ", " + lineOne.pointB.getY());
         this.lineTwo = new Line(vertexTwo, vertexThree);
+        System.out.println("Line two " + lineTwo.pointA.getX() + ", " + lineTwo.pointA.getY() + ", " + lineTwo.pointB.getX() + ", " + lineTwo.pointB.getY());
         this.lineThree = new Line(vertexThree, vertexOne);
+        System.out.println("Line three " + lineThree.pointA.getX() + ", " + lineThree.pointA.getY() + ", " + lineTwo.pointB.getX() + ", " + lineThree.pointB.getY());
+        
     }
 
     public OrderedPair getVertexOne() {
@@ -38,13 +45,21 @@ public class Triangle {
 
     public boolean isPointInterior(OrderedPair comparisonPair) {
         if (areInteriorPointsAboveLineOne() != lineOne.isPointAboveLine(comparisonPair)) return false;
+        System.out.println(areInteriorPointsAboveLineOne() + " for line one " + lineOne.isPointAboveLine(comparisonPair));
         if (areInteriorPointsAboveLineTwo() != lineTwo.isPointAboveLine(comparisonPair)) return false;
+        System.out.println(areInteriorPointsAboveLineTwo() + " for line two " + lineTwo.isPointAboveLine(comparisonPair));
         if (areInteriorPointsAboveLineThree() != lineThree.isPointAboveLine(comparisonPair)) return false;
+        System.out.println(areInteriorPointsAboveLineThree() + " for line three " + lineThree.isPointAboveLine(comparisonPair));
         return true;
     }
 
     public static void main(String[] args) {
-        
+        OrderedPair firstPair = new OrderedPair(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
+        OrderedPair secondPair = new OrderedPair(Double.parseDouble(args[2]), Double.parseDouble(args[3]));
+        OrderedPair thirdPair = new OrderedPair(Double.parseDouble(args[4]), Double.parseDouble(args[5]));
+        OrderedPair comparisonPair = new OrderedPair(Double.parseDouble(args[6]), Double.parseDouble(args[7]));
+        Triangle testTriangle  = new Triangle(firstPair, secondPair, thirdPair);
+        System.out.println(testTriangle.isPointInterior(comparisonPair));
     }
 
 }
