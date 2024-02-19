@@ -1,6 +1,6 @@
 public class OrderedPair {
 
-    public double x, y;
+    private double x, y;
 
     public OrderedPair(double x, double y) {
         this.x = x;
@@ -18,14 +18,17 @@ public class OrderedPair {
     public double getSlopeBetweenPoints(OrderedPair secondPair) {
         // System.out.println("acquired slope " + (secondPair.getY() - this.y) / (secondPair.getX() - this.x) + " " + secondPair.getY() + " " + this.y + " " + secondPair.getX() + " " + this.x);
         // System.out.println();
+        if (secondPair.getX() == this.x) {
+            return Double.POSITIVE_INFINITY;
+        }
         return ((secondPair.getY() - this.y) / (secondPair.getX() - this.x));
     }
 
     public double getInterceptBetweenPoints(OrderedPair secondPair) {
         double slope = getSlopeBetweenPoints(secondPair);
-        // if ((slope == 1.0 / 0.0) || (slope == 0.0 / 0.0)) {
-        //     return 0.0;
-        // }
+        if (slope == Double.POSITIVE_INFINITY) {
+            return Double.POSITIVE_INFINITY;
+        }
         return (this.y - this.x * slope);
     }
 }
